@@ -605,21 +605,135 @@ def add(a,b):
 # print(b)
 
 
-a = [-8,2,7,5,-3,5,0,1]
+# a = [-8,2,7,5,-3,5,0,1]
 
-max_num =0
-min_num =10
+# max_num =0
+# min_num =10
 
-for i in a :
-    if i > max_num:
-        max_num = i
-    if i < min_num:
-        min_num = i
+# for i in a :
+#     if i > max_num:
+#         max_num = i
+#     if i < min_num:
+#         min_num = i
 
 
         
 
-print('최대값은 {}이고 최소값은 {} 이며 이 둘의 합은 {}이다'.format(max_num,min_num, (max_num+min_num)))
-# print('최대값은 %d이고 최소값은 %d 이며 이 둘의 합은 %d이다' % max_num % min_num % (max_num+min_num))
-print('둘의 합은 {}이다'.format(min(a) + max(a)))
+# print('최대값은 {}이고 최소값은 {} 이며 이 둘의 합은 {}이다'.format(max_num,min_num, (max_num+min_num)))
+# # print('최대값은 %d이고 최소값은 %d 이며 이 둘의 합은 %d이다' % max_num % min_num % (max_num+min_num))
+# print('둘의 합은 {}이다'.format(min(a) + max(a)))
 
+# import os 
+
+# def search(dirname):
+#     try : 
+#         filenames = os.listdir(dirname)
+#         for filename in filenames:
+#             full_filename = os.path.join(dirname,filename)
+#             if os.path.isdir(full_filename) :
+#                 search(full_filename)
+            
+#             else:
+#                ext = os.path.splitext(full_filename)[-1]
+#                if ext == '.py':
+#                     print(full_filename)
+    
+#     except PermissionError:
+#         pass
+# search("c:/")
+
+
+# import os
+
+# for (path, dir, files) in os.walk("c:/") :
+#     for filename in files :
+#         ext = os.path.splitext(filename)[-1]
+#         if ext == '.py':
+#             print("%s%s" % (path, filename))
+
+# with open('euc_kr.txt', encoding='euc-kr') as f:
+#     data = f.read()
+
+#     data = data + "\n" + '테스트'
+
+# with open('euc_kr.txt', encoding = 'euc-kr',mode ='w') as f :
+#     f.write(data)  
+
+# -*-coding:utf-8 -*-
+
+
+# class Mul:
+#     def __init__(self,m):
+#         self.m = m
+    
+#     def mul(self,n):
+#         return self.m*n
+    
+# if __name__ == "__main__" :
+#     mul3 = Mul(3)
+#     mul5 = Mul(5)
+
+#     print(mul3.mul(10))
+#     print(mul5.mul(10))
+
+
+# class Mul:
+#     def __init__(self,m):
+#         self.m = m
+
+#     def __call__(self,n):
+#         return self.m*n
+    
+# if __name__ == "__main__" :
+#     mul3 = Mul(3)
+#     mul5 = Mul(5)
+
+#     print(mul3(10))
+#     print(mul5(10))
+
+
+# def mul(m):
+#     def wrapper(n):
+#         return m*n
+#     return wrapper
+
+# if __name__ == "__main__" :
+#     mul3 = mul(3)
+#     mul5 = mul(5)
+
+#     print(mul3(10))
+#     print(mul5(10))
+
+# import time
+
+# def myfunc():
+#     start = time.time()
+#     print("함수가 실행됩니다.")
+#     end = time.time()
+#     print("함수 수행 시간 : %f 초" % (end -start))
+
+
+# myfunc()
+
+
+import time
+
+def elapsed(original_func):
+    def wrapper():
+        start = time.time()
+        result = original_func()
+        end = time.time()
+        print("함수 수행 시간 : %f초" % (end - start))
+        return result
+    return wrapper
+
+
+
+@elapsed
+def myfunc():
+    print("함수가 실행됩니다.")
+
+# decorated_myfunc = elapsed(myfunc)
+# decorated_myfunc()
+
+myfunc()
