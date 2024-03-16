@@ -834,12 +834,190 @@ def add(a,b):
 # result = add(3,3.4)
 # print(result)
 
-import re
+# import re
 
-data = """
-park 800905-1049118
-kim 700905-1059119
-"""
+# data = """
+# park 800905-1049118
+# kim 700905-1059119
+# """
 
-pat = re.compile("(\d{6})[-]\d{7}")
-print(pat.sub("\g<1>-*******", data))
+# pat = re.compile("(\d{6})[-]\d{7}")
+# print(pat.sub("\g<1>-*******", data))
+
+
+# A = [20, 55, 67, 82, 45, 33, 90, 87, 100, 25]
+
+# result =0
+
+# while A :
+#     mark = A.pop()
+#     if mark >= 50 :
+#         result += mark
+
+# print(result)
+
+
+# def fib(n):
+#     if n == 0 : return 0
+#     if n == 1 : return 1
+#     return fib(n-2) + fib(n-1)
+
+# for  i in range(10):
+#     print(fib(i))
+
+
+# user_input = input("숫자를 입력하세요 : ")
+# numbers = user_input.split(",")
+
+# print(numbers)
+# total = 0
+# for n in numbers:
+#     total +=int(n)
+# print(total)
+
+
+# gugu_number = input("구구단 숫자를 입력하세요(2~9) : ")
+
+# for i in range(1,10):
+#     print(int(gugu_number)*i, end=' ')
+
+# f = open('abc.txt', 'r')
+# lines = f.readlines()
+# f.close()
+# lines.reverse()
+
+# f = open('abc.txt','w')
+# for line in lines:
+#     line = line.strip()
+#     f.write(line)
+#     f.write('\n')
+# f.close()
+
+# f = open('sample.txt', 'r')
+# lines = f.readlines()
+# f.close()
+
+# sum = 0
+
+# f = open('result.txt','w')
+# for line in lines:
+#     sum += int(line)
+# avg = sum/len(lines)
+
+# f.write("합은 :")
+# f.write(str(sum))
+# f.write('\n')
+# f.write("평균은 :")
+# f.write(str(avg))
+# f.close()
+
+# print ("합은 : ",sum)
+# print("평균은 : ",avg)
+
+# class Calculator :
+#     def __init__(self, numberList):
+#         self.numberList = numberList
+
+#     def sum (self) :
+#         result = 0
+#         for num in self.numberList :
+#             result += num
+#         return result
+    
+#     def avg(self) :
+#         total = self.sum()
+#         return total/len(self.numberList) 
+
+# cal1 = Calculator([1,2,3,4,5])
+# cal1.sum()
+# print(cal1.sum())
+# print(cal1.avg())
+
+# cal2 = Calculator([6,7,8,9,10])
+# cal2.sum()
+# print(cal1.sum())
+# print(cal1.avg())
+
+
+# data  = "4546793"
+# numbers = list(map(int,data))
+# result = []
+
+# for i, num in enumerate(numbers):
+#     result.append(str(num))
+#     if i < len(numbers) - 1 :
+#         is_odd = num %2 == 1
+#         is_next_odd = numbers[i+1]%2 ==1
+#         if is_odd and is_next_odd :
+#             result.append("-")
+#         elif not is_odd and not is_next_odd:
+#             result.append("*")
+
+# print("".join(result))
+
+
+# def compress_string(s):
+#     _c = ""
+#     cnt = 0
+#     result = ""
+#     for c in s :
+#         if c != _c:
+#             _c = c
+#             if cnt: result +=str(cnt)
+
+#             result += c
+#             cnt = 1
+#         else :
+#             cnt += 1
+#     if cnt: result +=str(cnt)
+
+#     return result
+
+# print(compress_string("aaabbcccccca"))
+
+
+# def compress_string(s):
+#     _c = ""
+#     cnt = 0
+#     result = ""
+#     for c in s:
+#         if c !=_c:
+#             _c = c
+#             if cnt : result +=str(cnt)
+
+#             result += c
+#             cnt = 1
+#         else :
+#             cnt += 1
+#     if cnt: result += str(cnt)
+
+#     return result
+
+# print(compress_string("aaabbcccccca"))
+
+
+# def chk_dup_numbers(s):
+#     result = []
+#     for num in s :
+#         if num not in result :
+#             result.append(num)
+
+#         else:
+#             return False
+        
+#     return len(result) == 10
+    
+# print(chk_dup_numbers("0123456789"))
+# print(chk_dup_numbers("01234"))
+# print(chk_dup_numbers("01234567890"))
+# print(chk_dup_numbers("6789012345"))
+# print(chk_dup_numbers("012322456789"))
+
+
+def morse(src):
+    result = []
+    for word in src.split("  "):
+        for char in word.split(" "):
+            result.append(dic[char])
+        result.append(" ")
+    return "".join(result)
