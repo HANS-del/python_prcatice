@@ -1014,10 +1014,148 @@ def add(a,b):
 # print(chk_dup_numbers("012322456789"))
 
 
-def morse(src):
-    result = []
-    for word in src.split("  "):
-        for char in word.split(" "):
-            result.append(dic[char])
-        result.append(" ")
-    return "".join(result)
+# def morse(src):
+#     result = []
+#     for word in src.split("  "):
+#         for char in word.split(" "):
+#             result.append(dic[char])
+#         result.append(" ")
+#     return "".join(result)
+
+
+# import csv
+
+
+# with open('C:/Users/rhgks/Desktop/code_drill/Git/Python/Practice/contry.csv','r') as f :
+#     reader = csv.reader(f)
+
+
+#     # next(reader)
+#     #객체 확인
+#     print(reader)
+#     #타입 확인
+#     print(type(reader))
+#     #속성 확인
+#     print(dir(reader)) #__iter__
+#     print()
+
+#     for c in reader:
+#         # print(c)
+#         print(' : '.join(c))
+
+
+
+# with open('./contry.csv','r') as f :
+#     reader = csv.reader(f,delimiter='|')
+
+#     for c in reader:
+#         print(c)
+
+
+
+# with open('./contry.csv','r') as f :
+#     reader = csv.DictReader(f)
+
+#     #확인
+#     print(reader)
+#     print(type(reader))
+#     print(dir(reader))
+
+#     print()
+
+#     for c in reader:
+#         for k, v in c.items():
+#             print(k,v)
+
+#         print('---------------')
+
+# w = [[1,2,3],[4,5,6],[7,8,9]]
+# with open('./contry.csv','w', encoding ='utf-8') as f :
+    
+    
+#     fields = ['One','Two', 'Three']
+
+#     wt = csv.DictWriter(f,fieldnames=fields)
+#     wt.writeheader()
+
+#     for v in w:
+#         wt.writerow({'One':v[0],'Two':v[1], 'Three' : v[2]})
+
+
+#Chaprer 10-1
+#Hangman(행맨) 미니 게임 제작(1)
+#기본 프로그램 제작 및 테스트
+
+
+import time
+
+name = input("what is your name?")
+
+print("Hi, " + name, "Time to play hangman game!")
+
+print()
+
+time.sleep(1)
+
+print("Start Loading...")
+print()
+time.sleep(0.5)
+
+
+
+# 정답 단어
+word = "secret"
+
+
+#추측 단어 
+guesses = ''
+
+#기회
+turns = 10
+
+# 핵심 While Loop
+# 찬스 카운트가 남아 있는 경우
+while turns > 0:
+    #실패 횟수(단어 매치 수)
+    failed = 0
+
+    # 정답 단어 반복
+    for char in word :
+        # 정답 단어 내에 추측 문자가 포함되어 있는 경우
+        if char in guesses:
+            #추측 단어 출력
+            print(char, end = '')
+        else:
+            # 틀린 경우 대시로 처리
+            print("_", end='')
+            failed +=1
+        if failed == 0:
+            print()
+            print()
+            print('Congratulation! The Guesses is correct.')
+            #while 구문 중단
+            break
+
+        print()
+
+
+        #추측 단어 문자 단위 입력
+        print()
+        guess = input("guess a charater.")
+
+        # 단어 더하기
+        guesses +=guess
+
+        #정답 단어에 추측한 문자가 포함되어 있지 않으면
+        if guess not in word:
+            turns -=1
+            # 오류 메세지
+            print("Oops! Wrong")
+            # 남은 기회 출력
+            print("You have", turns, 'more guesses!')
+            
+
+            if turns == 0:
+                # 실패 메시지
+                print("You hangman game failed")
+
